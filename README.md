@@ -436,6 +436,8 @@ $ docker run -d --name vol-test-2 -v solbao-data:/data ubuntu sleep infinity
 $ docker exec -it vol-test-2 bash -lc "cat /data/test.txt"
 >Persistence Test
 ```
+<img width="652" height="196" alt="image" src="https://github.com/user-attachments/assets/3fb5c8b5-540a-41dd-b7ae-43fe29143c33" />
+
 *검증: 마지막 명령어 (cat /data/test.txt) 입력 시, 터미널 화면에 'Persistence Test' 출력되며 데이터가 영구적으로 보존되고있음을 확인하였습니다.
 
 ### 4.7 Git 설정 및 GitHub 연동
