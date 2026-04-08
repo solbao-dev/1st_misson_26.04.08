@@ -367,7 +367,7 @@ $ touch Dockerfile
 ```bash
 # 이미지 빌드
 $ docker build -t my-web:1.0 .
-[img_1]<img width="648" height="479" alt="Image" src="https://github.com/user-attachments/assets/fc55f404-2228-4204-a2b2-3ee48396b194" />
+<img width="648" height="479" alt="Image" src="https://github.com/user-attachments/assets/fc55f404-2228-4204-a2b2-3ee48396b194" />
 
 # 포트 매핑을 통한 컨테이너 백그라운드 실행
 $ docker run -d -p 8080:80 --name my-web-8080 my-web:1.0
@@ -379,7 +379,7 @@ $ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
 * 브라우저에서 `localhost:8080` 및 `localhost:8081` 접속 완료
   
 [localhost_8080_접속화면]
-<img width="872" height="264" alt="Image" src="https://github.com/user-attachments/assets/94969afe-fe9c-4dfd-a043-74388346a344" />
+<img width="882" height="203" alt="Image" src="https://github.com/user-attachments/assets/64e413a6-292b-404d-b392-1aca4a93b66a" />
 
 [localhost_8081_접속화면]  
 <img width="567" height="268" alt="Image" src="https://github.com/user-attachments/assets/1bbea101-b296-4f48-991a-d73c51ae5630" />
