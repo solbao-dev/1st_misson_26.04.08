@@ -446,7 +446,7 @@ $ docker exec -it vol-test-2 bash -lc "cat /data/test.txt"
 
 *💾 **볼륨 설정 재현성 확보 방안:** 데이터 영속성 테스트를 위해 사용한 호스트의 절대 경로(`$(pwd)/src`)와 도커 볼륨 이름(`solbao-data`), 그리고 마운트 대상 경로(`/usr/share/nginx/html`, `/data`)를 명시적으로 기록하여, 컨테이너가 삭제되더라도 동일한 볼륨 마운트 명령어를 통해 즉시 데이터를 복구하고 환경을 재현할 수 있도록 문서를 구성했습니다.  
 
-### 4.7 Git 설정 및 GitHub 연동
+### 4.7 Git 설정 및 GitHub 연동 (add -> commit -> pull -> push)
 
 1) 로컬 Git 환경 설정 및 초기화
 
