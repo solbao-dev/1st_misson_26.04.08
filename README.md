@@ -46,11 +46,39 @@ $ cd ~/codyssey/practice
 # 빈 파일 생성 및 확인
 $ touch test_file.txt
 $ ls -al
+> total 0
+drwxr-xr-x  3 greeny10031213  greeny10031213  96 Apr  8 21:51 .
+drwxr-xr-x  3 greeny10031213  greeny10031213  96 Apr  8 21:25 ..
+-rw-r--r--  1 greeny10031213  greeny10031213   0 Apr  8 21:51 test_file.txt
 ```
 * 관찰 내용 요약: `~/`는 내 컴퓨터의 **최상위 홈 디렉토리** 이며, 'mkdir -p'에서 '-p'(parents)옵션은 절대경로를 주든 상대경로를 주든 주어진방식에 맞추어서 중간폴더까지 생성함을 확인하였습니다.
 <br>
 
-2.  파일 및 디렉토리 권한 변경
+2.  심화 조작(내용 확인, 복사, 이름변경, 삭제)
+```diff
+# 파일에 내용 쓰기 및 내용 확인
+$ echo "Hello Codyssey solji" > test_file.txt
+$ cat test_file.txt
+> hello codyssey solji
+
++ bonus [GUI , 절대경로와 상대경로 , 슬래시 (/)] ☄️
+greeny10031213@c3r9s3 practice % open test_file.txt
+greeny10031213@c3r9s3 practice % cd ~/codyssey
+greeny10031213@c3r9s3 codyssey % open test_file.txt
+- The file /Users/greeny10031213/codyssey/test_file.txt does not exist.
+greeny10031213@c3r9s3 codyssey % open practice/test_file.txt
+
+# 파일 복사 (copy)
+$ cp test_file.txt copy_file.txt
+
+# 파일 이름 변경 (move)
+$ mv copy_file.txt rename_file.txt
+
+# 파일 삭제 (remove) 및 최종 목록 확인
+$rm rename_file.txt$ ls -al
+```
+
+4.  파일 및 디렉토리 권한 변경
 
 > 목적: 파일(r/w/x) 및 디렉토리의 권한을 변경하고 `755`, `644` 등의 표기법에 따른 동작 변화를 확인합니다.
 ```bash
