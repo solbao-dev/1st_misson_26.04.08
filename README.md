@@ -61,7 +61,7 @@ $ echo "Hello Codyssey solji" > test_file.txt
 $ cat test_file.txt
 > hello codyssey solji
 
-+ bonus [GUI , 절대경로와 상대경로 , 슬래시 (/)] ☄️
++ bonus [GUI , 절대경로와 상대경로 , 슬래시 (/)] ☄️💡
 greeny10031213@c3r9s3 practice % open test_file.txt
 greeny10031213@c3r9s3 practice % cd ~/codyssey
 greeny10031213@c3r9s3 codyssey % open test_file.txt
@@ -206,16 +206,53 @@ WARNING: DOCKER_INSECURE_NO_IPTABLES_RAW is set
 ```
 ### 4.3 기본 컨테이너 실행 실습
 1)  `hello-world` 이미지 실행
-```bash
+```diff
 $ docker run hello-world
-[여기에 hello from docker 출력 결과 일부 복사]
++ > Unable to find image 'hello-world:latest' locally
++ latest: Pulling from library/hello-world
+4f55086f7dd0: Pull complete 
+Digest: sha256:452a468a4bf985040037cb6d5392410206e47db9bf5b7278d281f94d1c2d0931
+Status: Downloaded newer image for hello-world:latest
+
++ Hello from Docker!
+This message shows that your installation appears to be working correctly.
+
+To generate this message, Docker took the following steps:
+ 1. The Docker client contacted the Docker daemon.
+ 2. The Docker daemon pulled the "hello-world" image from the Docker Hub.
+    (amd64)
+ 3. The Docker daemon created a new container from that image which runs the
+    executable that produces the output you are currently reading.
+ 4. The Docker daemon streamed that output to the Docker client, which sent it
+    to your terminal.
+
+To try something more ambitious, you can run an Ubuntu container with:
+ $ docker run -it ubuntu bash
+
+Share images, automate workflows, and more with a free Docker ID:
+ https://hub.docker.com/
+
+For more examples and ideas, visit:
+ https://docs.docker.com/get-started/
+
 ```
 2)  `ubuntu` 컨테이너 진입 및 확인
 ```bash
 $ docker run -it ubuntu bash
-root@abc12345:/# echo "Hello Codyssey!"
-Hello Codyssey!
-root@abc12345:/# exit
+💡☄️Bonus: typo - error
+>docker: Error response from daemon: pull access denied for ubunru, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+
+root@91b43885ed6d:/# echo "Hello Codyssey!"
+>Hello Codyssey!
+
+root@91b43885ed6d:/# ls
+>bin   dev  home  lib64  mnt  proc  run   srv  tmp  var
+boot  etc  lib   media  opt  root  sbin  sys  usr
+
+root@91b43885ed6d:/# exit
+>exit
+greeny10031213@c3r9s3 ~ %
+
 ```
 * 관찰 내용 요약: `attach`는 실행 중인 컨테이너의 메인 프로세스에 접속하는 것이며, `exec`는 실행 중인 컨테이너에 새로운 프로세스(주로 쉘)를 추가로 실행하여 접속하는 방식임을 확인했습니다.
 
