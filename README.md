@@ -31,7 +31,7 @@
 ## 4. 미션 수행 상세 로그 및 검증
 
 ### 4.1 터미널 조작 및 권한 제어
-**1) 기본 조작 (생성, 복사, 이동, 삭제)**
+1. 기본 조작 (생성, 복사, 이동, 삭제)
 ```bash
 # 디렉토리 생성 및 이동
 $ mkdir -p ~/codyssey/practice
@@ -41,7 +41,7 @@ $ cd ~/codyssey/practice
 $ touch test_file.txt
 $ ls -alㅍ
 ```
-**2)  파일 및 디렉토리 권한 변경**
+2.  파일 및 디렉토리 권한 변경
 
 > 목적: 파일(r/w/x) 및 디렉토리의 권한을 변경하고 `755`, `644` 등의 표기법에 따른 동작 변화를 확인합니다.
 ```bash
@@ -65,15 +65,28 @@ $ docker --version
 $ docker info
 ```
 ### 4.3 기본 컨테이너 실행 실습
-1) `hello-world` 이미지 실행
+1)  `hello-world` 이미지 실행
 ```bash
 $ docker run hello-world
 [여기에 hello from docker 출력 결과 일부 복사]
 ```
-2) `ubuntu` 컨테이너 진입 및 확인
+2)  `ubuntu` 컨테이너 진입 및 확인
 ```bash
 $ docker run -it ubuntu bash
 root@abc12345:/# echo "Hello Codyssey!"
 Hello Codyssey!
 root@abc12345:/# exit
+```
+*  관찰 내용 요약: `attach`는 실행 중인 컨테이너의 메인 프로세스에 접속하는 것이며, `exec`는 실행 중인 컨테이너에 새로운 프로세스(주로 쉘)를 추가로 실행하여 접속하는 방식임을 확인했습니다.
+
+### 4.4 커스텀 이미지 제작 및 포트 매핑
+선택한 베이스 이미지: nginx:alpine
+커스텀 포인트: Nginx의 기본 index.html을 정적 콘텐츠로 교체하여 나만의 웹 서버 구동
+
+1) Dockerfile 작성
+```bash
+FROM nginx:alpine
+LABEL org.opencontainers.image.title="solbao-custom-web"
+ENV APP_ENV=dev
+COPY src/ /usr/share/nginx/html/
 ```
