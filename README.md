@@ -408,6 +408,8 @@ a0cc6912219b4f8f5ae5238ce2589083d438a3d157f59086f7695e66a712987c
 
 $ echo '<h1>Bind Mount is Magic!</h1>' > src/index.html
 ```
+<img width="874" height="282" alt="Image" src="https://github.com/user-attachments/assets/f36fcdaa-b7d8-4505-9265-9bc05a217945" />  
+
 * 검증: 호스트의 src/index.html 내용을 수정하고 브라우저를 새로고침 했을 때, 컨테이너 재시작 없이 변경 사항이 즉시 반영됨을 확인했습니다.
 
 2) Docker 볼륨 영속성 (Volume Persistence)
