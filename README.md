@@ -8,10 +8,10 @@
 ---
 
 ## 2. 실행 환경
-* **OS:** [예: macOS Sonoma 14.x / Windows 11 WSL2 Ubuntu 22.04]
-* **Shell / Terminal:** [예: zsh / bash / iTerm2]
-* **Docker Engine:** [예: OrbStack (Docker version 24.x.x)]
-* **Git Version:** [예: git version 2.39.3]
+* **OS**: macOS 15.7.4 24G517 
+* **Shell/Terminal**: / /bin/zsh
+* **Docker Engine**: Docker version 28.5.2, build ecc6942
+* **Git Version**: git version 2.53.0
 
 ---
 
