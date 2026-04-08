@@ -499,8 +499,7 @@ $ git push -u origin main
 3) 연동 증거
 로컬 맥북의 작업물(Dockerfile, src/ 등)과 GitHub 웹에서 먼저 작성되었던 리드미 파일이 덮어쓰기 유실 없이 정상적으로 병합(Merge)되어 원격 저장소에 완벽하게 업로드된 것을 확인했습니다.
 
-![GitHub_연동_완료_화면]()
-
+[![GitHub_연동_완료_화면](https://github.com/user-attachments/assets/c9f07122-f99b-4f24-81fb-21bc08d3e8dd)](https://github.com/user-attachments/assets/c9f07122-f99b-4f24-81fb-21bc08d3e8dd)
 ---
 
 ## 5. 트러블슈팅 (Troubleshooting)
