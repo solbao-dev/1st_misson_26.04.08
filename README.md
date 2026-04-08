@@ -414,19 +414,29 @@ $ echo '<h1>Bind Mount is Magic!</h1>' > src/index.html
 
 2) Docker 볼륨 영속성 (Volume Persistence)
 ```bash
+
 # 볼륨 생성 및 연결
 $ docker volume create solbao-data
+>solbao-data
 $ docker run -d --name vol-test -v solbao-data:/data ubuntu sleep infinity
+>80183a90dc7de91cd97edafa255f0ee97403082dc5d05e8a30e20b257df1ff16
 
 # 데이터 생성
 $ docker exec -it vol-test bash -lc "echo 'Persistence Test' > /data/test.txt"
 
 # 컨테이너 삭제 후 새 컨테이너에 동일 볼륨 연결하여 데이터 확인
 $ docker rm -f vol-test
+>vol-test
+
+# 새 컨테이너에 동일 볼륨 연결
 $ docker run -d --name vol-test-2 -v solbao-data:/data ubuntu sleep infinity
+>5da479c4fa6cc8b63076e4aaf5ddff0f0be9297c669ee8534572318778a68ab6
+
+#검증절차(명령+출력)
 $ docker exec -it vol-test-2 bash -lc "cat /data/test.txt"
-Persistence Test
+>Persistence Test
 ```
+*검증: 마지막 명령어 (cat /data/test.txt) 입력 시, 터미널 화면에 'Persistence Test' 출력되며 데이터가 영구적으로 보존되고있음을 확인하였습니다.
 
 ### 4.7 Git 설정 및 GitHub 연동
 
