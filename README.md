@@ -67,7 +67,8 @@ greeny10031213@c3r9s3 practice % cd ~/codyssey
 greeny10031213@c3r9s3 codyssey % open test_file.txt
 - The file /Users/greeny10031213/codyssey/test_file.txt does not exist.
 greeny10031213@c3r9s3 codyssey % open practice/test_file.txt
-
+```
+```bash
 # 파일 복사 (copy)
 $ cp test_file.txt copy_file.txt
 
@@ -76,20 +77,27 @@ $ mv copy_file.txt rename_file.txt
 
 # 파일 삭제 (remove) 및 최종 목록 확인
 $rm rename_file.txt$ ls -al
+> total 32
+drwxr-xr-x  5 greeny10031213  greeny10031213   160 Apr  8 23:14 .
+drwxr-xr-x  4 greeny10031213  greeny10031213   128 Apr  8 22:38 ..
+-rw-r--r--@ 1 greeny10031213  greeny10031213  6148 Apr  8 23:09 .DS_Store
+-rw-r--r--@ 1 greeny10031213  greeny10031213    21 Apr  8 23:12 rename_file.txt
+-rw-r--r--@ 1 greeny10031213  greeny10031213    21 Apr  8 22:27 test_file.txt
 ```
 
 4.  파일 및 디렉토리 권한 변경
 
 > 목적: 파일(r/w/x) 및 디렉토리의 권한을 변경하고 `755`, `644` 등의 표기법에 따른 동작 변화를 확인합니다.
-```bash
+```diff
 # 파일 권한 변경 전 확인
 $ ls -l test_file.txt
--rw-r--r--  1 solbao  staff  0  4 10 10:00 test_file.txt
++ -rw-r--r--@ 1 greeny10031213  greeny10031213  21 Apr  8 22:27 test_file.txt
 
-# 권한 변경 (예: 실행 권한 추가)
+# rwx421 권한 변경
+# 755: 소유자 모든 권한 , 읽기실행 / 644: 소유자 읽고 쓰기 , 읽기 / 700: 개인권한
 $ chmod 755 test_file.txt
 $ ls -l test_file.txt
--rwxr-xr-x  1 solbao  staff  0  4 10 10:01 test_file.txt
+- -rwxr-xr-x@ 1 greeny10031213  greeny10031213  21 Apr  8 22:27 test_file.txt
 ```
 ### 4.2 Docker 기본 점검 (OrbStack)
 > 목적: OrbStack을 통한 Docker 데몬 동작 및 버전을 확인합니다.
