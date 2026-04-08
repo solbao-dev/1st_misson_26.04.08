@@ -102,3 +102,27 @@ $ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
 3) 접속 증거
 * 브라우저에서 `localhost:8080` 및 `localhost:8081` 접속 완료
 ![localhost_8080_접속화면]([여기에 깃허브 이슈나 이미지 호스팅에 올린 이미지 URL을 넣어주세요])
+
+### 4.5 마운트 반영 및 데이터 영속성 검증
+1) 바인드 마운트 (Bind Mount)
+```bash
+# 호스트의 현재 디렉토리를 컨테이너에 마운트하여 실행
+$ docker run -d -p 8082:80 -v $(pwd)/src:/usr/share/nginx/html --name bind-test nginx:alpine
+```
+* 검증: 호스트의 src/index.html 내용을 수정하고 브라우저를 새로고침 했을 때, 컨테이너 재시작 없이 변경 사항이 즉시 반영됨을 확인했습니다.
+
+2) Docker 볼륨 영속성 (Volume Persistence)
+```bash
+# 볼륨 생성 및 연결
+$ docker volume create solbao-data
+$ docker run -d --name vol-test -v solbao-data:/data ubuntu sleep infinity
+
+# 데이터 생성
+$ docker exec -it vol-test bash -lc "echo 'Persistence Test' > /data/test.txt"
+
+# 컨테이너 삭제 후 새 컨테이너에 동일 볼륨 연결하여 데이터 확인
+$ docker rm -f vol-test
+$ docker run -d --name vol-test-2 -v solbao-data:/data ubuntu sleep infinity
+$ docker exec -it vol-test-2 bash -lc "cat /data/test.txt"
+Persistence Test
+```
