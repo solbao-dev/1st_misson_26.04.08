@@ -454,7 +454,9 @@ user.name=solbao-dev
 user.email=‘dianasjyoon@gmail.com’
 init.defaultbranch=main
 greeny10031213@c3r9s3 practice %
+
 ```
+
 <img width="618" height="129" alt="image" src="https://github.com/user-attachments/assets/64610e03-5645-4989-90da-7b880dde89cb" />
 
 ```bash
