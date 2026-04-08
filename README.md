@@ -107,7 +107,8 @@ $ docker --version
 > Docker version 28.5.2, build ecc6942
 
 # 시스템 정보 및 실행 상태 점검
-$ docker info 🚢 "선장님(orbstack)뻗음여부 확인가능" Cannot connect to the Docker daemon 🚢
+$ docker info
++ 🚢 "선장님(orbstack)뻗음여부 확인가능" Cannot connect to the Docker daemon 🚢
 - Client Version:    28.5.2
  Context:    orbstack
  Debug Mode: false
