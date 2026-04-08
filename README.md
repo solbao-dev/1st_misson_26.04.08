@@ -307,22 +307,40 @@ CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                 
 
 **1) 이미지 및 컨테이너 목록 확인**
 ```bash
+
 # 보유 중인 이미지 목록 확인
 $ docker images
+>REPOSITORY    TAG       IMAGE ID       CREATED       SIZE
+ubuntu        latest    b28307c40a80   5 days ago    78.1MB
+hello-world   latest    e2ac70e7319a   2 weeks ago   10.1kB
 
 # 실행 중인 컨테이너 확인
 $ docker ps
+>CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
 
 # 전체 컨테이너(종료 포함) 확인
 $ docker ps -a
+>CONTAINER ID   IMAGE         COMMAND    CREATED             STATUS                         PORTS     NAMES
+8d6ebc059f86   ubuntu        "bash"     50 minutes ago      Exited (0) 46 minutes ago                my-box
+91b43885ed6d   ubuntu        "bash"     About an hour ago   Exited (0) 57 minutes ago                boring_dewdney
+203fd0528039   hello-world   "/hello"   About an hour ago   Exited (0) About an hour ago             musing_neumann
+
 ```
 2) 컨테이너 운영 로그 및 리소스 확인
 ```bash
 # 특정 컨테이너의 실행 로그 확인 (Black box)
 $ docker logs my-box
+>root@8d6ebc059f86:/# echo " i am into attach(main door)"
+ i am into attach(main door)
+root@8d6ebc059f86:/# exit
+exit
 
 # 컨테이너별 실시간 리소스(CPU/MEM) 사용량 확인
-$ docker stats --no-stream my-box  
+$ docker stats (실시간CCTV) , out : ctrl + C 🎥
+$ docker stats --no-stream my-box (폴라로이드 사진)🎇
+>CONTAINER ID   NAME      CPU %     MEM USAGE / LIMIT     MEM %     NET I/O         BLOCK I/O     PIDS
+8d6ebc059f86   my-box    0.00%     1.355MiB / 15.67GiB   0.01%     1.13kB / 126B   4.43MB / 0B   1
+
 ```
 
 ### 4.5 커스텀 이미지 제작 및 포트 매핑
