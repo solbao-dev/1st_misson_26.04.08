@@ -126,3 +126,55 @@ $ docker run -d --name vol-test-2 -v solbao-data:/data ubuntu sleep infinity
 $ docker exec -it vol-test-2 bash -lc "cat /data/test.txt"
 Persistence Test
 ```
+
+### 4.6 Git 설정 및 GitHub 연동
+
+1) 로컬 Git 설정
+```bash
+$ git config --global user.name "Sol-ji Yoon"
+$ git config --global user.email "[이메일 주소]"
+$ git config --global init.defaultBranch main
+$ git config --list
+```
+2) 연동 증거
+![GitHub_연동_완료_화면]([여기에 캡처 이미지 URL을 넣어주세요])
+
+---
+
+## 5. 트러블슈팅 (Troubleshooting)
+
+
+`Issue 1` : Docker 데몬 연결 실패 (Cannot connect to the Docker daemon)
+
+* 문제: 터미널에서 docker ps 입력 시 데몬에 연결할 수 없다는 에러 발생.
+
+* 원인 가설: 시스템 권한 문제이거나 데몬 애플리케이션이 백그라운드에서 실행되지 않았을 것이다.
+
+* 확인: 환경 구성 시 Docker Desktop 대신 OrbStack을 사용하기로 했으나, 해당 앱을 실행하지 않은 상태였음.
+
+* 해결/대안: OrbStack 애플리케이션을 실행하여 백그라운드에서 Docker 엔진이 구동되도록 한 뒤 명령어를 재실행하여 정상 동작 확인.
+
+`Issue 2` : 포트 충돌 (Bind for 0.0.0.0:8080 failed: port is already allocated)
+
+* 문제: docker run -p 8080:80 ... 명령어 실행 시 포트 할당 에러 발생.
+
+* 원인 가설: 호스트 머신의 8080 포트를 이미 다른 프로세스(또는 기존 컨테이너)가 점유하고 있을 것이다.
+
+* 확인: lsof -i :8080 (또는 docker ps) 명령어로 8080 포트를 사용 중인 기존 컨테이너를 확인.
+
+* 해결/대안: 기존에 실행 중이던 컨테이너를 docker rm -f <컨테이너명>으로 삭제한 후 재실행하거나, 호스트 포트를 8081 등 다른 빈 포트로 변경하여 실행함.
+
+---
+
+## 6. 핵심 개념 요약 (회고)
+
+
+* 절대 경로 vs 상대 경로: [작성해둔 내용 붙여넣기]
+
+* 파일 권한 (r/w/x) 및 755/644의 의미: [작성해둔 내용 붙여넣기]
+
+* 포트 매핑의 필요성: [작성해둔 내용 붙여넣기]
+
+* Docker 볼륨이란: [작성해둔 내용 붙여넣기]
+
+* Git과 GitHub의 차이: [작성해둔 내용 붙여넣기]
