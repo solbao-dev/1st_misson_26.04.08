@@ -382,7 +382,7 @@ $ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
 <img width="882" height="203" alt="Image" src="https://github.com/user-attachments/assets/64e413a6-292b-404d-b392-1aca4a93b66a" />
 
 [localhost_8081_접속화면]  
-<img width="567" height="268" alt="Image" src="https://github.com/user-attachments/assets/1bbea101-b296-4f48-991a-d73c51ae5630" />
+<img width="877" height="246" alt="Image" src="https://github.com/user-attachments/assets/8d908009-a7c2-4b44-b86b-5e047368f58b" />
 
 ### 4.6 마운트 반영 및 데이터 영속성 검증
 1) 바인드 마운트 (Bind Mount)
