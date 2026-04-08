@@ -254,7 +254,54 @@ root@91b43885ed6d:/# exit
 greeny10031213@c3r9s3 ~ %
 
 ```
+3)  컨테이너 접속 및 유지 , 종료방식의 차이 관찰
+```bash
+# 백그라운드에서 돌아가는 박스 생성(-d(detach) 백그라운드실행옵션추가) , 박스확인
+
+$run -itd --name my-box ubuntu bash
+>8d6ebc059f860de53d3c38c594a4d863427ac8ead75ced59267d61e3865365da
+
+$docker ps
+>CONTAINER ID   IMAGE     COMMAND   CREATED          STATUS         PORTS     NAMES
+8d6ebc059f86   ubuntu    "bash"    10 seconds ago   Up 9 seconds             my-box
+
+
+#exec으로 새로운 bash(비밀문)열어서 접속하기
+
+$ docker exec -it my-box bash
+
+(컨테이너내부)
+root@8d6ebc059f86:/# echo "i am into exec(secret door)"
+i am into exec(secret door)
+root@8d6ebc059f86:/# exit
+exit
+
+(밖으로 빠져나온 뒤 다시 상태 확인)
+$ docker ps
+>CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
+8d6ebc059f86   ubuntu    "bash"    2 minutes ago   Up 2 minutes             my-box
+
+#attach로 메인화면(정문)에 접속하기
+
+$ docker attach my-box
+(컨테이너내부)
+root@8d6ebc059f86:/# echo " i am into attach(main door)"
+ i am into attach(main door)
+root@8d6ebc059f86:/# exit
+exit
+
+(밖으로 빠져나온 뒤 다시 상태 확인)
+$docker ps
+>CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+$docker ps -a
+CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                      PORTS     NAMES
+8d6ebc059f86   ubuntu        "bash"     4 minutes ago    Exited (0) 24 seconds ago             my-box
+91b43885ed6d   ubuntu        "bash"     23 minutes ago   Exited (0) 11 minutes ago             boring_dewdney
+203fd0528039   hello-world   "/hello"   28 minutes ago   Exited (0) 28 minutes ago             musing_neumann
+
 * 관찰 내용 요약: `attach`는 실행 중인 컨테이너의 메인 프로세스에 접속하는 것이며, `exec`는 실행 중인 컨테이너에 새로운 프로세스(주로 쉘)를 추가로 실행하여 접속하는 방식임을 확인했습니다.
+
 
 ### 4.4 커스텀 이미지 제작 및 포트 매핑
 선택한 베이스 이미지: nginx:alpine
