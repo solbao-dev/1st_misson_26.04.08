@@ -33,14 +33,23 @@
 ### 4.1 터미널 조작 및 권한 제어
 1. 기본 조작 (생성, 복사, 이동, 삭제)
 ```bash
+# 경로 확인
+$ pwd
+> /Users/greeny10031213
+
 # 디렉토리 생성 및 이동
 $ mkdir -p ~/codyssey/practice
 $ cd ~/codyssey/practice
+> greeny10031213@c3r9s3 practice % pwd
+/Users/greeny10031213/codyssey/practice
 
 # 빈 파일 생성 및 확인
 $ touch test_file.txt
-$ ls -alㅍ
+$ ls -al
 ```
+* 관찰 내용 요약: `~/`는 내 컴퓨터의 **최상위 홈 디렉토리** 이며, 'mkdir -p'에서 '-p'(parents)옵션은 절대경로를 주든 상대경로를 주든 주어진방식에 맞추어서 중간폴더까지 생성함을 확인하였습니다.
+<br>
+
 2.  파일 및 디렉토리 권한 변경
 
 > 목적: 파일(r/w/x) 및 디렉토리의 권한을 변경하고 `755`, `644` 등의 표기법에 따른 동작 변화를 확인합니다.
