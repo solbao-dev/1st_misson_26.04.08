@@ -52,6 +52,7 @@ drwxr-xr-x  3 greeny10031213  greeny10031213  96 Apr  8 21:25 ..
 -rw-r--r--  1 greeny10031213  greeny10031213   0 Apr  8 21:51 test_file.txt
 ```
 * 관찰 내용 요약: `~/`는 내 컴퓨터의 **최상위 홈 디렉토리** 이며, 'mkdir -p'에서 '-p'(parents)옵션은 절대경로를 주든 상대경로를 주든 주어진방식에 맞추어서 중간폴더까지 생성함을 확인하였습니다.
+* 📂 **디렉토리 구조 구성 기준 (재현성):** 홈 디렉토리(`~/`) 하위에 코디세이 전체 학습을 관리할 `codyssey` 폴더를 최상단으로 두고, 그 아래에 각 실습 코드를 격리하여 관리하기 위해 `practice` 하위 디렉토리를 구성하였습니다. 이를 통해 프로젝트 간 파일 충돌을 방지하고 작업 공간을 명확히 분리하는 기준으로 구조를 설계했습니다.
 <br>
 
 2.  심화 조작(내용 확인, 복사, 이름변경, 삭제)
@@ -384,7 +385,10 @@ $ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
 <img width="882" height="203" alt="Image" src="https://github.com/user-attachments/assets/64e413a6-292b-404d-b392-1aca4a93b66a" />
 
 [localhost_8081_접속화면]  
-<img width="877" height="246" alt="Image" src="https://github.com/user-attachments/assets/8d908009-a7c2-4b44-b86b-5e047368f58b" />
+<img width="877" height="246" alt="Image" src="https://github.com/user-attachments/assets/8d908009-a7c2-4b44-b86b-5e047368f58b" />  
+
+* 🔗 **포트 설정 재현성 확보 방안:** `Dockerfile`을 통해 베이스 이미지와 파일 복사 경로를 명시하고, `docker run` 명령어에 호스트 포트(`8080`, `8081`)와 컨테이너 포트(`80`) 매핑 규칙을 명확히 기록하였습니다. 이를 통해 누구든 이 문서의 명령어만 복사/붙여넣기 하면 동일한 웹 서버 환경을 즉각적으로 재현할 수 있도록 정리했습니다.
+
 
 ### 4.6 마운트 반영 및 데이터 영속성 검증
 1) 바인드 마운트 (Bind Mount)
