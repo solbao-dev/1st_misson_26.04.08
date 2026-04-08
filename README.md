@@ -301,7 +301,7 @@ CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                 
 203fd0528039   hello-world   "/hello"   28 minutes ago   Exited (0) 28 minutes ago             musing_neumann
 
 * 관찰 내용 요약: `attach`는 실행 중인 컨테이너의 메인 프로세스에 접속하는 것이며, `exec`는 실행 중인 컨테이너에 새로운 프로세스(주로 쉘)를 추가로 실행하여 접속하는 방식임을 확인했습니다.
-
+```
 
 ### 4.4 커스텀 이미지 제작 및 포트 매핑
 선택한 베이스 이미지: nginx:alpine
