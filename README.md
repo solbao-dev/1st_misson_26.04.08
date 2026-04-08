@@ -101,13 +101,13 @@ $ ls -l test_file.txt
 ```
 ### 4.2 Docker 기본 점검 (OrbStack)
 > 목적: OrbStack을 통한 Docker 데몬 동작 및 버전을 확인합니다.
-```diff
-# Docker 버전 확인
+```diff 
+# Docker 버전 확인 📱
 $ docker --version
 > Docker version 28.5.2, build ecc6942
 
 # 시스템 정보 및 실행 상태 점검
-$ docker info
+$ docker info 🚢 "선장님(orbstack)뻗음여부 확인가능" Cannot connect to the Docker daemon 🚢
 - Client Version:    28.5.2
  Context:    orbstack
  Debug Mode: false
