@@ -343,7 +343,16 @@ $ docker stats --no-stream my-box (폴라로이드 사진)🎇
 
 ```
 
-### 4.5 커스텀 이미지 제작 및 포트 매핑
+### 4.5 커스텀 이미지 제작 및 포트 매핑  
+
+0)src폴더, 브라우저 환영문구, 설명서파일 
+```bash
+$ cd ~/codyssey/practice  
+$ mkdir src  
+$ echo '<h1>Hello Solbao Web!</h1>' > src/index.html
+$ touch Dockerfile
+```
+
 선택한 베이스 이미지: nginx:alpine
 커스텀 포인트: Nginx의 기본 index.html을 정적 콘텐츠로 교체하여 나만의 웹 서버 구동
 
