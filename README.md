@@ -367,8 +367,10 @@ $ touch Dockerfile
 ```bash
 # 이미지 빌드
 $ docker build -t my-web:1.0 .
-<https://github.com/user-attachments/assets/fc55f404-2228-4204-a2b2-3ee48396b194" />
+```
+<img width="648" height="479" alt="Image" src="https://github.com/user-attachments/assets/fc55f404-2228-4204-a2b2-3ee48396b194" />
 
+```bash
 # 포트 매핑을 통한 컨테이너 백그라운드 실행
 $ docker run -d -p 8080:80 --name my-web-8080 my-web:1.0
 >9864b991a290b47971316486423da8c682d146813654192882c77e84792c5cec
