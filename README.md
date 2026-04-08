@@ -370,11 +370,15 @@ $ docker build -t my-web:1.0 .
 
 # 포트 매핑을 통한 컨테이너 백그라운드 실행
 $ docker run -d -p 8080:80 --name my-web-8080 my-web:1.0
+>9864b991a290b47971316486423da8c682d146813654192882c77e84792c5cec
 $ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
+>2fabf307fbc1763cb55668295df2a6939546cdd2b1edca72df59066e90e5baa7
 ```
 3) 접속 증거
 * 브라우저에서 `localhost:8080` 및 `localhost:8081` 접속 완료
-![localhost_8080_접속화면]([여기에 깃허브 이슈나 이미지 호스팅에 올린 이미지 URL을 넣어주세요])
+[localhost_8080_접속화면]<img width="872" height="264" alt="Image" src="https://github.com/user-attachments/assets/94969afe-fe9c-4dfd-a043-74388346a344" />
+
+[localhost_8081_접속화면]<img width="567" height="268" alt="Image" src="https://github.com/user-attachments/assets/1bbea101-b296-4f48-991a-d73c51ae5630" />
 
 ### 4.6 마운트 반영 및 데이터 영속성 검증
 1) 바인드 마운트 (Bind Mount)
