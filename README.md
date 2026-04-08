@@ -255,8 +255,8 @@ greeny10031213@c3r9s3 ~ %
 
 ```
 3)  컨테이너 접속 및 유지 , 종료방식의 차이 관찰
-```bash
-# 백그라운드에서 돌아가는 박스 생성(-d(detach) 백그라운드실행옵션추가) , 박스확인
+```diff
++# 백그라운드에서 돌아가는 박스 생성(-d(detach) 백그라운드실행옵션추가) , 박스확인
 
 $run -itd --name my-box ubuntu bash
 >8d6ebc059f860de53d3c38c594a4d863427ac8ead75ced59267d61e3865365da
@@ -266,7 +266,7 @@ $docker ps
 8d6ebc059f86   ubuntu    "bash"    10 seconds ago   Up 9 seconds             my-box
 
 
-#exec으로 새로운 bash(비밀문)열어서 접속하기
++#exec으로 새로운 bash(비밀문)열어서 접속하기
 
 $ docker exec -it my-box bash
 
@@ -281,7 +281,7 @@ $ docker ps
 >CONTAINER ID   IMAGE     COMMAND   CREATED         STATUS         PORTS     NAMES
 8d6ebc059f86   ubuntu    "bash"    2 minutes ago   Up 2 minutes             my-box
 
-#attach로 메인화면(정문)에 접속하기
++#attach로 메인화면(정문)에 접속하기
 
 $ docker attach my-box
 (컨테이너내부)
