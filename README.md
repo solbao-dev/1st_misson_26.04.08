@@ -302,8 +302,30 @@ CONTAINER ID   IMAGE         COMMAND    CREATED          STATUS                 
 
 * 관찰 내용 요약: `attach`는 실행 중인 컨테이너의 메인 프로세스에 접속하는 것이며, `exec`는 실행 중인 컨테이너에 새로운 프로세스(주로 쉘)를 추가로 실행하여 접속하는 방식임을 확인했습니다.
 ```
+### 4.4 Docker 기본 운영 명령 수행 및 검증
+<sub>**목적:** 이미지와 컨테이너의 상태를 조회하고, 로그 및 리소스 모니터링을 통해 운영 상태를 점검합니다.</sub>
 
-### 4.4 커스텀 이미지 제작 및 포트 매핑
+**1) 이미지 및 컨테이너 목록 확인**
+```bash
+# 보유 중인 이미지 목록 확인
+$ docker images
+
+# 실행 중인 컨테이너 확인
+$ docker ps
+
+# 전체 컨테이너(종료 포함) 확인
+$ docker ps -a
+```
+2) 컨테이너 운영 로그 및 리소스 확인
+```bash
+# 특정 컨테이너의 실행 로그 확인 (Black box)
+$ docker logs my-box
+
+# 컨테이너별 실시간 리소스(CPU/MEM) 사용량 확인
+$ docker stats --no-stream my-box  
+```
+
+### 4.5 커스텀 이미지 제작 및 포트 매핑
 선택한 베이스 이미지: nginx:alpine
 커스텀 포인트: Nginx의 기본 index.html을 정적 콘텐츠로 교체하여 나만의 웹 서버 구동
 
@@ -327,7 +349,7 @@ $ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
 * 브라우저에서 `localhost:8080` 및 `localhost:8081` 접속 완료
 ![localhost_8080_접속화면]([여기에 깃허브 이슈나 이미지 호스팅에 올린 이미지 URL을 넣어주세요])
 
-### 4.5 마운트 반영 및 데이터 영속성 검증
+### 4.6 마운트 반영 및 데이터 영속성 검증
 1) 바인드 마운트 (Bind Mount)
 ```bash
 # 호스트의 현재 디렉토리를 컨테이너에 마운트하여 실행
@@ -351,7 +373,7 @@ $ docker exec -it vol-test-2 bash -lc "cat /data/test.txt"
 Persistence Test
 ```
 
-### 4.6 Git 설정 및 GitHub 연동
+### 4.7 Git 설정 및 GitHub 연동
 
 1) 로컬 Git 설정
 ```bash
