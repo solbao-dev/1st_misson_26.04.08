@@ -77,7 +77,7 @@ root@abc12345:/# echo "Hello Codyssey!"
 Hello Codyssey!
 root@abc12345:/# exit
 ```
-*  관찰 내용 요약: `attach`는 실행 중인 컨테이너의 메인 프로세스에 접속하는 것이며, `exec`는 실행 중인 컨테이너에 새로운 프로세스(주로 쉘)를 추가로 실행하여 접속하는 방식임을 확인했습니다.
+* 관찰 내용 요약: `attach`는 실행 중인 컨테이너의 메인 프로세스에 접속하는 것이며, `exec`는 실행 중인 컨테이너에 새로운 프로세스(주로 쉘)를 추가로 실행하여 접속하는 방식임을 확인했습니다.
 
 ### 4.4 커스텀 이미지 제작 및 포트 매핑
 선택한 베이스 이미지: nginx:alpine
@@ -85,8 +85,20 @@ root@abc12345:/# exit
 
 1) Dockerfile 작성
 ```bash
-FROM nginx:alpine
-LABEL org.opencontainers.image.title="solbao-custom-web"
-ENV APP_ENV=dev
-COPY src/ /usr/share/nginx/html/
+`FROM` nginx:alpine
+`LABEL` org.opencontainers.image.title="solbao-custom-web"
+`ENV` APP_ENV=dev
+`COPY` src/ /usr/share/nginx/html/
 ```
+2) 빌드 및 컨테이너 실행 (포트 매핑)
+```bash
+# 이미지 빌드
+$ docker build -t my-web:1.0 .
+
+# 포트 매핑을 통한 컨테이너 백그라운드 실행
+$ docker run -d -p 8080:80 --name my-web-8080 my-web:1.0
+$ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
+```
+3) 접속 증거
+* 브라우저에서 `localhost:8080` 및 `localhost:8081` 접속 완료
+![localhost_8080_접속화면]([여기에 깃허브 이슈나 이미지 호스팅에 올린 이미지 URL을 넣어주세요])
