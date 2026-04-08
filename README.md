@@ -390,7 +390,23 @@ $ docker run -d -p 8081:80 --name my-web-8081 my-web:1.0
 1) 바인드 마운트 (Bind Mount)
 ```bash
 # 호스트의 현재 디렉토리를 컨테이너에 마운트하여 실행
+
 $ docker run -d -p 8082:80 -v $(pwd)/src:/usr/share/nginx/html --name bind-test nginx:alpine
+>Unable to find image 'nginx:alpine' locally
+alpine: Pulling from library/nginx
+589002ba0eae: Already exists 
+f03becc8ac15: Already exists 
+15e759724ff6: Already exists 
+ff9f59a6a62e: Already exists 
+a71873b303e8: Already exists 
+34dfdd2ef1f9: Already exists 
+c8a2fa3a88d2: Already exists 
+1165b869c51a: Already exists 
+Digest: sha256:645eda1c2477aaa9b879f73909b9222c6f19798dd45be6706268d82a661c6e6d
+Status: Downloaded newer image for nginx:alpine
+a0cc6912219b4f8f5ae5238ce2589083d438a3d157f59086f7695e66a712987c
+
+$ echo '<h1>Bind Mount is Magic!</h1>' > src/index.html
 ```
 * 검증: 호스트의 src/index.html 내용을 수정하고 브라우저를 새로고침 했을 때, 컨테이너 재시작 없이 변경 사항이 즉시 반영됨을 확인했습니다.
 
