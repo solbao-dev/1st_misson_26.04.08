@@ -10,7 +10,7 @@
 ## 2. 실행 환경
 * **OS**: macOS 15.7.4 24G517 
 * **Shell/Terminal**: / /bin/zsh
-* **Docker Engine**: Docker version 28.5.2, build ecc6942
+* **Docker Engine**: OrbStack, Docker version 28.5.2 build ecc6942
 * **Git Version**: git version 2.53.0
 
 ---
