@@ -444,11 +444,20 @@ $ docker exec -it vol-test-2 bash -lc "cat /data/test.txt"
 
 1) 로컬 Git 설정
 ```bash
-$ git config --global user.name "Sol-ji Yoon"
-$ git config --global user.email "[이메일 주소]"
+$ git config --global user.name 'solbao-dev'
+$ git config --global user.email 'dianasjyoon@gmail.com’
 $ git config --global init.defaultBranch main
 $ git config --list
+
+>credential.helper=osxkeychain
+user.name=solbao-dev
+user.email=‘dianasjyoon@gmail.com’
+init.defaultbranch=main
+greeny10031213@c3r9s3 practice %
 ```
+<img width="618" height="129" alt="image" src="https://github.com/user-attachments/assets/64610e03-5645-4989-90da-7b880dde89cb" />
+
+```bash
 2) 연동 증거
 ![GitHub_연동_완료_화면]([여기에 캡처 이미지 URL을 넣어주세요])
 
